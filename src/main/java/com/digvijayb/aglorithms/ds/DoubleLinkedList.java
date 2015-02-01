@@ -3,11 +3,12 @@ package com.digvijayb.aglorithms.ds;
 /**
  * Created by digvijayb on 1/2/15.
  */
-public class SingleLinkedList<T> {
+public class DoubleLinkedList<T> {
 
     private class Node<T>{
         T value;
         Node<T> next;
+        Node<T> prev;
     }
 
     private Node<T> first = null;
@@ -21,6 +22,7 @@ public class SingleLinkedList<T> {
             last = first;
         }else{
             last.next = newNode;
+            newNode.prev = last;
             last = newNode;
         }
         size++;
@@ -33,6 +35,7 @@ public class SingleLinkedList<T> {
             last = first;
         }else{
             newNode.next = first;
+            first.prev = newNode;
             first = newNode;
         }
         size++;
@@ -42,28 +45,33 @@ public class SingleLinkedList<T> {
      * Remove frist
      */
     public T remove(){
-            try {
-                return (first!=null)? first.value : null;
-            }finally {
+        try {
+            return (first!=null)? first.value : null;
+        }finally {
+            if(first!=last) {
                 first = first.next;
-                size--;
+                first.prev = null;
+            }else{
+                first = null;
+                last = null;
             }
+            size--;
+        }
 
 
     }
 
     public T removeLast(){
-        Node<T> node = first;
         try {
-            while(size > 0 && node!=null){
-                if (node.next == last || last==node) {
-                    return last.value;
-                }
-                node = node.next;
-            }
-            return null;
+            return (last!=null)? last.value : null ;
         }finally {
-            last = node;
+            if(first!=last) {
+                last = last.prev;
+                last.next = null;
+            }else{
+                first = null;
+                last = null;
+            }
             size--;
         }
     }
