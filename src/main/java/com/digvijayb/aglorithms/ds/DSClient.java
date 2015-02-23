@@ -1,5 +1,7 @@
 package com.digvijayb.aglorithms.ds;
 
+import com.digvijayb.aglorithms.p1.Shuffling;
+
 /**
  * Created by digvijayb on 1/2/15.
  */
@@ -8,7 +10,8 @@ public class DSClient {
     public static void main(String... args){
 
             //DSClient.clientToSingleLinkedList();
-            DSClient.clientToDoubleLinkedList();
+            //DSClient.clientToDoubleLinkedList();
+            DSClient.clientToDemoBST();
     }
 
     private static void clientToSingleLinkedList(){
@@ -44,5 +47,28 @@ public class DSClient {
         }
 
     }
+
+    private static void clientToDemoBST(){
+
+        int a[] = new int[10];
+        for(int i = 0; i < a.length ; i++){
+            a[i] = i*5;
+        }
+
+        a = Shuffling.shuffle(a);
+        a = Shuffling.shuffle(a);
+        a = Shuffling.shuffle(a);
+        BinarySearchTree<Integer,String> integerStringBinarySearchTree = new BinarySearchTree<Integer, String>();
+        for(int i : a){
+            System.out.println(i);
+            integerStringBinarySearchTree.put(i,String.valueOf(i));
+        }
+
+        System.out.println(integerStringBinarySearchTree.get(25));
+        System.out.println(integerStringBinarySearchTree.get(30));
+        System.out.println(integerStringBinarySearchTree.get(0));
+        System.out.println(integerStringBinarySearchTree.get(5));
+    }
+
 
 }
