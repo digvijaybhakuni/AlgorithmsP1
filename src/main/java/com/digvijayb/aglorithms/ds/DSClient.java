@@ -50,24 +50,26 @@ public class DSClient {
 
     private static void clientToDemoBST(){
 
-        int a[] = new int[10];
+        int a[] = new int[20];
+        Shuffling.initRandom();
         for(int i = 0; i < a.length ; i++){
-            a[i] = i*5;
+            a[i] = i*Shuffling.uniform(20)*3;
         }
 
         a = Shuffling.shuffle(a);
-        a = Shuffling.shuffle(a);
-        a = Shuffling.shuffle(a);
+        //a = Shuffling.shuffle(a);
+        //a = Shuffling.shuffle(a);
         BinarySearchTree<Integer,String> integerStringBinarySearchTree = new BinarySearchTree<Integer, String>();
         for(int i : a){
             System.out.println(i);
             integerStringBinarySearchTree.put(i,String.valueOf(i));
         }
 
-        System.out.println(integerStringBinarySearchTree.get(25));
-        System.out.println(integerStringBinarySearchTree.get(30));
-        System.out.println(integerStringBinarySearchTree.get(0));
-        System.out.println(integerStringBinarySearchTree.get(5));
+        System.out.println("--------------------------------------");
+        System.out.println(integerStringBinarySearchTree.get(a[9]));
+        System.out.println(integerStringBinarySearchTree.get(a[4]));
+        System.out.println(integerStringBinarySearchTree.get(a[6]));
+        System.out.println(integerStringBinarySearchTree.get(a[3]));
     }
 
 

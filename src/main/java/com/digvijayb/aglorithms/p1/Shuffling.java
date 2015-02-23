@@ -31,7 +31,7 @@ public class Shuffling {
         a[j] = temp;
     }
 
-    private static void initRandom(){
+    public static void initRandom(){
         if(random==null) {
             random = new Random();
         }

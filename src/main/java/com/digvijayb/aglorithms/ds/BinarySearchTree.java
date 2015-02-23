@@ -54,6 +54,7 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
 
 
     public V get(K key){
+        System.out.println("key : " + key);
         return get(root,key);
     }
 
