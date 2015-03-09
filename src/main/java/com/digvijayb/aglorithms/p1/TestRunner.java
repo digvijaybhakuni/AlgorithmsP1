@@ -9,7 +9,8 @@ public class TestRunner {
 
         //QuickFind.runQuickFind();
         //QuickUnionUF.runQuickUnionUF();
-        WeightedQuickUnionUF.runWeightedQuickUnionUF();
+        //WeightedQuickUnionUF.runWeightedQuickUnionUF();
+        MergeSort.runMergeSort();
     }
 
 
