@@ -1,8 +1,8 @@
 package com.digvijayb.aglorithms.sample;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 /**
  * Created by digvijayb on 28/3/15.
@@ -61,13 +61,32 @@ public class TestLambda {
         System.out.println("sumOfAgeAllMale = "+sumOfAgeAllMale);
 
         Integer totalAgeReduce;
-        /* reduce: the first argument of the is always the left value for method passed and whatever the value is returned is now left value */
+        /* reduce: the first argument of the is always the left value for method passed and whatever the value is returned is now left value
+         * link : https://docs.oracle.com/javase/tutorial/collections/streams/reduction.html
+         * */
         totalAgeReduce = persons.stream().mapToInt(Person::getAge).reduce(0,(left,right)->{ return left-right; });//
         //totalAgeReduce = persons.stream().mapToInt(Person::getAge).reduce(10,TestLambda::abc);
         System.out.println("totalAgeReduce = " + totalAgeReduce);
         //.ifPresent(e -> System.out.println("e.getName() = " + e.getName()));
 
+        // Collect function
 
+        List<String> nameofAllMale = persons.stream().filter(e -> e.getSex() == Person.Sex.MALE).map(e -> e.getName()).collect(Collectors.toList());
+
+        nameofAllMale.forEach(System.out::println);
+
+        List<Person> malePerson = persons.stream().filter(e -> e.getSex() == Person.Sex.MALE).collect(Collectors.toList());
+
+        // Now Grouping By age Collection
+
+        Map<Integer, List<Person>> groupeByAgeOfPerson = persons.stream().collect(Collectors.groupingBy(Person::getAge));
+        //e -> e.getAge()
+
+        Map<Person.Sex, List<String>> collect = persons.stream().collect(Collectors.groupingBy(e -> e.getSex(), Collectors.mapping(e -> e.getName(), Collectors.toList())));
+
+        /*
+         * https://docs.oracle.com/javase/tutorial/collections/TOC.html
+         * */
 
     }
 
