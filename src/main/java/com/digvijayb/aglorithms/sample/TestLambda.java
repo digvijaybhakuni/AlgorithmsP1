@@ -84,9 +84,13 @@ public class TestLambda {
 
         Map<Person.Sex, List<String>> collect = persons.stream().collect(Collectors.groupingBy(e -> e.getSex(), Collectors.mapping(e -> e.getName(), Collectors.toList())));
 
+        Map<Person.Sex, List<String>> abc = persons.stream().collect(Collectors.groupingBy(e -> e.getSex(), Collectors.mapping(e -> e.getName(), Collectors.toList())));
+
+
+
         /*
          * https://docs.oracle.com/javase/tutorial/collections/TOC.html
-         * */
+         */
 
     }
 
