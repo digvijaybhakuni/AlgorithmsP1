@@ -25,6 +25,8 @@
         <module name="AlgorithmsP1" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="AlgorithmsP1" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
-

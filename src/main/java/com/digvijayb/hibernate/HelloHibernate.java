@@ -1,6 +1,5 @@
 package com.digvijayb.hibernate;
 
-import com.digvijayb.aglorithms.sample.TestLambda;
 import com.digvijayb.hibernate.entity.PersonEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -25,7 +24,6 @@ public class HelloHibernate {
         //session.save(personEntity);
         session.update(personEntity);
         session.getTransaction().commit();
-
 
     }
 
