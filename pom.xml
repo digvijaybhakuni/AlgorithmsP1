@@ -8,6 +8,10 @@
     <artifactId>aglosAndMore</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
     <dependencies>
 
         <dependency>
@@ -88,6 +92,15 @@
             <artifactId>spring-context</artifactId>
             <version>3.0.5.RELEASE</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>3.4.2</version>
+        </dependency>
+
+
+
     </dependencies>
 
 </project>
