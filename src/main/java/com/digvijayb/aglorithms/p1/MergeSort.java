@@ -1,13 +1,12 @@
 package com.digvijayb.aglorithms.p1;
 
-import com.sun.istack.internal.NotNull;
 
 /**
  * Created by digvijayb on 25/2/15.
  */
 public class MergeSort {
 
-    public static int[] mergeSort(@NotNull int arr[]){
+    public static int[] mergeSort(int arr[]){
         int aux[] = new int[arr.length];
         System.arraycopy(arr, 0, aux, 0, arr.length);
         mergeSort0(arr,aux,0,aux.length-1);
