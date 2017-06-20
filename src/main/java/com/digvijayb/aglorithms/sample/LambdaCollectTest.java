@@ -3,6 +3,7 @@ package com.digvijayb.aglorithms.sample;
 import com.mongodb.BasicDBList;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
