@@ -1,0 +1,147 @@
+
+ALGO 4
+
+function search(array data, string input):array {
+	if(data.length < 1){
+		return [];
+	}
+	m = data.length / 2
+	match = true
+	left = false 
+	for (i = 0, i < data[m].length && i < input.length, i++){
+		if(data[m][i] != input[i]){
+			match = false
+			left = input[i] < data[m][i]
+		}
+	}
+	
+	if(match){
+		l = search(data.slice(0, m), input)
+		r = search(data.slice(m, data.length), input)
+		return l.concat(r);
+	}else if(left){
+		return search(data.slice(0, m), input);
+	}else{
+		return search(data.slice(m, data.length), input)
+	}
+
+}
+
+ALGO 3 
+
+#Doubly Link list
+
+class Node<E> {
+	E data = null;
+	Node<E> next = null;
+	Node<E> previous = null;
+}
+
+
+ALGO 2 
+
+# Without left outer join 
+
+SELECT e.id employee_id, e.name employee_name, a.name asset_name 
+FROM asset a RIGHT OUTER JOIN employee e on a.asset_id = e.asset_id;
+
+ALGO 1
+
+# Test Case for the vertical scroll bar
+
+Action										Expected result
+Mouse drags and moves scroll bar up/down	Content moves down/up
+Mouse drags and moves scroll bar right/left	Content should not moves down/up
+Mouse drags and moves scroll bar up/down	Content should not moves right/left
+Mouse drags and moves scroll bar up			Content move down only
+Mouse drags and moves scroll bar down		Content move up only
+
+
+ALGO 5
+
+public class Solution {
+    
+    // each time connect the two light rod
+    public int minEffort(int[] nums) {
+        if (nums.length == 0) {
+            return 0;
+        }
+        int res = 0;
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        for (int num : nums) {
+            queue.add(num);
+        }
+        while (queue.size() > 1) {
+            int effort = queue.poll() + queue.poll();
+            res += effort;
+            queue.offer(effort);
+        }
+        return res;
+    }
+
+}
+
+Section 3 - Software Platform Setup
+
+1 > tar xzf test.tag.gz
+
+2 >
+
+cp /etc/samba/smb.conf.default /etc/samba/smb.conf
+
+Edit file with following option
+
+[Share Name] 
+path = /home/dev-user/Share
+option = value
+
+force user = dev-user
+force group = dev-user
+
+
+3 >
+
+https://support.microsoft.com/en-us/help/251192/how-to-create-a-windows-service-by-using-sc.exe?PHPSESSID=6d87e00de5a3577412b38543998c067e%3FPHPSESSID%3D6d87e00de5a3577412b38543998c067e
+
+sc [<ServerName>] create [<ServiceName>] 
+
+sc [<ServerName>] delete [<ServiceName>]
+
+sc [<ServerName>] start <ServiceName> [<ServiceArguments>]
+
+sc [<ServerName>] stop <ServiceName>
+
+4 >
+
+create a service file <service>.service
+inside '/usr/lib/systemd/system' directory
+ 
+systemctl daemon-reload
+systemctl start <service>
+
+
+7 >
+
+sudo iptables -S
+
+8 >
+
+Active mode:
+
+Client opens up command channel from client port 2000(a) to server port 21(b).
+Client sends PORT 2001(a) to server and server acknowledges on command channel.
+Server opens up data channel from server port 20(b) to client port 2001(a).
+Client acknowledges on data channel.
+
+Passive mode:
+
+Client opens up command channel from client port 2000(a) to server port 21(b).
+Client sends PASV to server on command channel.
+Server sends back (on command channel) PORT 1234(a) after starting to listen on that port.
+Client opens up data channel from client 2001(a) to server port 1234(a).
+Server acknowledges on data channel.
+
+
+
+
+
