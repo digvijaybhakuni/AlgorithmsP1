@@ -29,10 +29,14 @@ public class PlayWithTime {
         }
         System.out.println(b);
 
-        for(int i = 0 ; i <= 1000; i++){
+        for(int i = 0 ; i <= 10; i++){
             //System.out.println(String.format("%010d",Integer.parseInt(Integer.toBinaryString(i))));
+            //System.out.println(Integer.toBinaryString(i)+" \t " + Integer.parseInt(Integer.toBinaryString(i)) + " \t " + i);
+
             System.out.printf("%010d", Integer.parseInt(Integer.toBinaryString(i)));
             System.out.println();
+            //System.out.printf("%010s", Integer.toBinaryString(i));
+            //System.out.println();
         }
 
         Date now = new Date();

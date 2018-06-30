@@ -54,10 +54,10 @@ public class TestLambda {
 
 
         ///Reduction Funtion
-        double asDouble = persons.stream().filter(e -> e.getSex() == Person.Sex.MALE).peek(Person::printName).mapToInt(Person::getAge).average().getAsDouble();
+        double asDouble = persons.stream().parallel().filter(e -> e.getSex() == Person.Sex.MALE).peek(Person::printName).mapToInt(Person::getAge).average().getAsDouble();
         System.out.println(asDouble);
 
-        Integer sumOfAgeAllMale = persons.stream().filter(e -> e.getSex() == Person.Sex.MALE).peek(Person::printName).mapToInt(Person::getAge).sum();
+        Integer sumOfAgeAllMale = persons.stream().sequential().filter(e -> e.getSex() == Person.Sex.MALE).peek(Person::printName).mapToInt(Person::getAge).sum();
         System.out.println("sumOfAgeAllMale = "+sumOfAgeAllMale);
 
         Integer totalAgeReduce;
