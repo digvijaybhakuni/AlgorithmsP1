@@ -13,6 +13,9 @@ public class SpringFactory {
 
 
         ApplicationContext context = new ClassPathXmlApplicationContext("springContext.xml");
+
+        System.out.println("Spring context Created");
+
         BeanB beanB = context.getBean(BeanB.class);
         BeanA beanA = context.getBean(BeanA.class);
 
