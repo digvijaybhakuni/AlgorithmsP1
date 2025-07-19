@@ -86,7 +86,8 @@ public class TestLambda {
 
         Map<Person.Sex, List<String>> abc = persons.stream().collect(Collectors.groupingBy(e -> e.getSex(), Collectors.mapping(e -> e.getName(), Collectors.toList())));
 
-
+        // If the name are unique then get Map<String, Person> (Name, Person)
+        Map<String, Person> nameMap = person.stream().collect(Collectors.toMap(Person::getName, e -> e));
 
         /*
          * https://docs.oracle.com/javase/tutorial/collections/TOC.html
